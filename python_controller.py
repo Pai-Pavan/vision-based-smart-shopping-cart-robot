@@ -88,8 +88,7 @@ while cap.isOpened():
 
         # Display decoded QR text above QR code
         x, y, w_qr, h_qr = qr.rect
-        cv2.putText(frame, qr_data, (x, y - 10),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 0, 0), 2)
+        cv2.putText(frame, qr_data, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 0, 0), 2)
     else:
         qr_active = False
 
@@ -104,8 +103,7 @@ while cap.isOpened():
     center_right = int(w * 2/3)
     center_top = int(h * 0.2)
     center_bottom = int(h * 0.8)
-    cv2.rectangle(frame, (center_left, center_top),
-                  (center_right, center_bottom), (255, 255, 0), 2)
+    cv2.rectangle(frame, (center_left, center_top), (center_right, center_bottom), (255, 255, 0), 2)
 
     # Default direction = Stop
     direction = "S"
@@ -159,10 +157,8 @@ while cap.isOpened():
     # Display Info
     # -------------------------------
     if qr_active:
-        cv2.putText(frame, f"QR: {qr_data}", (10, 70),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
-    cv2.putText(frame, f"Direction: {direction}", (10, 30),
-                cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
+        cv2.putText(frame, f"QR: {qr_data}", (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+    cv2.putText(frame, f"Direction: {direction}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
 
     # Show live video feed with overlays
     cv2.imshow("QR + Pose + ESP", frame)
